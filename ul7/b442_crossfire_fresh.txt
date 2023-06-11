@@ -1,0 +1,145 @@
+defaults nosave
+
+
+# version
+# Betaflight / STM32F7X2 (S7X2) 4.4.1 Apr 17 2023 / 00:20:17 (e43d591b2) MSP API: 1.45
+
+# config: YES
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name BLADE_F7_HD
+manufacturer_id RUSH
+mcu_id 002500293756500720383558
+signature 
+
+# name: helios
+
+# feature
+feature -TELEMETRY
+feature -AIRMODE
+feature GPS
+feature OSD
+
+# serial
+serial 0 64 115200 57600 0 115200
+serial 1 0 115200 57600 0 115200
+serial 3 131073 115200 57600 0 115200
+serial 4 2 115200 115200 0 115200
+
+# beeper
+beeper -GYRO_CALIBRATED
+beeper -GPS_STATUS
+beeper -ACC_CALIBRATION
+beeper -ACC_CALIBRATION_FAIL
+beeper -ON_USB
+beeper -BLACKBOX_ERASE
+beeper -CAM_CONNECTION_OPEN
+beeper -CAM_CONNECTION_CLOSE
+
+# led
+led 0 6,6::C:1
+led 1 7,6::C:1
+led 2 8,6::C:1
+
+# color
+color 1 240,0,255
+
+# mode_color
+mode_color 7 0 8
+
+# aux
+aux 0 0 0 1700 2100 0 0
+aux 1 1 2 1700 2100 0 0
+aux 2 13 3 1700 2100 0 0
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+set acc_calibration = 27,106,-360,1
+set align_mag = CW90FLIP
+set mag_align_pitch = 1800
+set mag_align_yaw = 900
+set mag_bustype = I2C
+set mag_i2c_device = 1
+set mag_calibration = 214,1079,770
+set min_check = 1000
+set max_check = 2000
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT600
+set vbat_max_cell_voltage = 435
+set yaw_motors_reversed = ON
+set small_angle = 180
+set gps_sbas_mode = WAAS
+set gps_ublox_use_galileo = ON
+set gps_set_home_point_once = ON
+set osd_warn_bitmask = 56317
+set osd_link_quality_alarm = 70
+set osd_rssi_dbm_alarm = -100
+set osd_vbat_pos = 3087
+set osd_link_quality_pos = 3596
+set osd_rssi_dbm_pos = 3628
+set osd_tim_1_pos = 32
+set osd_tim_2_pos = 2112
+set osd_current_pos = 3150
+set osd_craft_name_pos = 2679
+set osd_gps_speed_pos = 2109
+set osd_gps_sats_pos = 2068
+set osd_home_dir_pos = 2074
+set osd_home_dist_pos = 2077
+set osd_flight_dist_pos = 2080
+set osd_altitude_pos = 2048
+set osd_warnings_pos = 14773
+set osd_avg_cell_voltage_pos = 3119
+set osd_pit_ang_pos = 2100
+set osd_disarmed_pos = 2295
+set osd_core_temp_pos = 96
+set osd_efficiency_pos = 3182
+set osd_displayport_device = MSP
+set debug_mode = GYRO_SCALED
+set vcd_video_system = HD
+set craft_name = helios
+
+profile 0
+
+# profile 0
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set feedforward_smooth_factor = 0
+set feedforward_jitter_factor = 10
+set feedforward_boost = 5
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
